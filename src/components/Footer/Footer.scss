@@ -1,0 +1,17 @@
+.footer {
+  background-color: rgb(228, 238, 241);
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    height: 100px;
+    width: 100px;
+    background-color: rgb(228, 238, 241);
+
+    background-image: url(../../assets/images/surf-logo.png);
+    background-blend-mode: darken;
+    background-size: contain;
+  }
+}

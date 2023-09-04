@@ -1,0 +1,42 @@
+.Navbar {
+   height: 180px;
+   width: 100%;
+   background-color: white;
+   position: fixed;
+   z-index: 3;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   padding-inline: 3rem;
+   gap: 4rem;
+   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.05);
+
+
+   .logo {
+    height: 160px;
+    width: 160px;
+    background-image: url(../../assets/images/surf-logo.png);
+    background-size: contain;
+   }
+
+   .Nav {
+    list-style: none;
+    display: flex;
+    gap: 4rem;
+
+    a {
+        color: black;
+        text-decoration: none;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .redFont {
+        color: red;
+    }
+
+   }
+}

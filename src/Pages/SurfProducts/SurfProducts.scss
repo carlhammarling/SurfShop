@@ -1,0 +1,36 @@
+.surfWrapper {
+  padding-top: 170px;
+  .surfBanner {
+    height: 25vw;
+    background-image: url("https://images.pexels.com/photos/3660189/pexels-photo-3660189.jpeg?auto=compress&cs=tinysrgb&w=800");
+    background-size: cover;
+    background-position-y: calc(50% + 20%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 850px) {
+      height: 35vw;
+    }
+    @media (max-width: 550px) {
+      height: 60vw;
+    }
+  }
+
+  .categoriesOutput {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 5rem;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr;
+    }
+    @media (max-width: 550px) {
+      margin: 2rem;
+    }
+  }
+}
