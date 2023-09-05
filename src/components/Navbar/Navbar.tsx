@@ -14,7 +14,7 @@ const Navbar = () => {
           <NavLink to="surfproducts">SURFBOARDS</NavLink>
         </li>
         <li>
-          <NavLink to="wetsuits">KITESURF</NavLink>
+          <NavLink to="kitesurf">KITESURF</NavLink>
         </li>
         <li>
           <NavLink to="wetsuits">WETSUITS</NavLink>
@@ -23,12 +23,12 @@ const Navbar = () => {
           <NavLink to="swimwear">SWIMWEAR</NavLink>
         </li>
         <li>
-          <NavLink className="redFont" to="surfproducts">
+          <NavLink className="redFont" to="outlet">
             OUTLET
           </NavLink>
         </li>
         <li>
-          <NavLink to="surfproducts">
+          <NavLink to="outlet">
           <i className="fa-solid fa-cart-shopping"></i>
           </NavLink>
         </li>

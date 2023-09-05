@@ -17,20 +17,23 @@
     }
   }
 
-  .categoriesOutput {
+  .productsOutput {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
     margin: 5rem;
 
     @media (max-width: 1200px) {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     }
     @media (max-width: 850px) {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      margin: 2rem;
+
     }
     @media (max-width: 550px) {
-      margin: 2rem;
+      grid-template-columns: 1fr;
+
     }
   }
 }
