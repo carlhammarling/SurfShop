@@ -1,0 +1,39 @@
+.kiteWrapper {
+  padding-top: 170px;
+  .kiteBanner {
+    height: 25vw;
+    background-image: url("https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-size: cover;
+    background-position-y: calc(50%);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 850px) {
+      height: 35vw;
+    }
+    @media (max-width: 550px) {
+      height: 60vw;
+    }
+  }
+
+  .productsOutput {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    margin: 5rem;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (max-width: 850px) {
+      grid-template-columns: 1fr 1fr;
+      margin: 2rem;
+
+    }
+    @media (max-width: 550px) {
+      grid-template-columns: 1fr;
+
+    }
+  }
+}

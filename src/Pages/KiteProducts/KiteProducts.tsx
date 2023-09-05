@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./SurfProducts.scss";
+import "./KiteProducts.scss";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useData } from '../../Context/DataContext';
 
-const SurfProducts = () => {
+const KiteProducts = () => {
 
 const data = useData();
 
@@ -13,16 +13,16 @@ if(!data) {
 }
 
 //Nu när vi vet att vi har data så kan vi extracta den.
-const { surfProducts } = data;
+const { kiteProducts } = data;
 
   return (
-    <div className="surfWrapper">
-      <div className="surfBanner">
-        <h1>SURFBOARDS</h1>
+    <div className="kiteWrapper">
+      <div className="kiteBanner">
+        <h1>KITESURF</h1>
       </div>
       <div className="productsOutput">
-        {surfProducts &&
-          surfProducts.map((item) => (
+        {kiteProducts &&
+          kiteProducts.map((item) => (
             <ProductCard
               key={item.id}
               {...item}
@@ -33,4 +33,4 @@ const { surfProducts } = data;
   );
 };
 
-export default SurfProducts;
+export default KiteProducts;
