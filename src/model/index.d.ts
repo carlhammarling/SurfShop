@@ -18,14 +18,14 @@ interface Category {
     link: string
 }
 
-
+type ProductCategory = "surfproducts" | "kiteproducts";
 type BoardType = "Soft" | "Hard";
 
 type KiteType = "Board" | "Kite";
 
 interface Product {
     id?: number
-    category: string
+    category: ProductCategory
     productName: string
     imgURL: string
     brand: string

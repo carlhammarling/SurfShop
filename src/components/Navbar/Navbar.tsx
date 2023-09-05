@@ -14,7 +14,7 @@ const Navbar = () => {
           <NavLink to="surfproducts">SURFBOARDS</NavLink>
         </li>
         <li>
-          <NavLink to="kitesurf">KITESURF</NavLink>
+          <NavLink to="kiteproducts">KITESURF</NavLink>
         </li>
         <li>
           <NavLink to="wetsuits">WETSUITS</NavLink>
