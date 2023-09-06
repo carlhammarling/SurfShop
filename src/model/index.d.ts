@@ -1,5 +1,7 @@
 
 interface DataContextProps {
+    categories: Category[]
+    setCategories: React.Dispatch<React.SetStateAction<Category[]>>
     surfProducts: Surfboard[]
     setSurfProducts: React.Dispatch<React.SetStateAction<Surfboard[]>>
     kiteProducts: Kite[]

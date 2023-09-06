@@ -5,15 +5,7 @@ import { useData } from '../../Context/DataContext';
 
 const SurfProducts = () => {
 
-const data = useData();
-
-if(!data) {
-  //Checkar om det finns data, vi måste returnera nåt här, annars kommer inget ut på sidan.
-  return <div>Loading</div>
-}
-
-//Nu när vi vet att vi har data så kan vi extracta den.
-const { surfProducts } = data;
+const { surfProducts } = useData();
 
   return (
     <div className="surfWrapper">
