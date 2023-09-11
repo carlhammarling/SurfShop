@@ -179,6 +179,46 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     },
   ]);
 
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  //CART FUNCTION
+
+  const addToCart = (category: string, id: number) => {
+    let productToAdd: Surfboard | Kite | undefined;
+
+    if (category === "surfproducts") {
+      productToAdd = surfProducts.find((item) => item.id === id);
+    }
+    if (category === "kiteproducts") {
+      productToAdd = kiteProducts.find((item) => item.id === id);
+    }
+
+    if (productToAdd) {
+      let newCartItem: CartItem = {
+        quantity: 1,
+        product: productToAdd,
+      };
+
+      const existingCart: string | null = localStorage.getItem("cart");
+      let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+
+      const existingCartItemIndex = cartData.findIndex(
+        (item) =>
+          item.product.id === newCartItem.product.id && item.product.category === newCartItem.product.category
+      );
+
+      if (existingCartItemIndex !== -1) {
+        cartData[existingCartItemIndex].quantity += 1;
+      } else {
+        cartData.push(newCartItem);
+      }
+      if (cartData) {
+        setCart(cartData);
+      }
+      localStorage.setItem("cart", JSON.stringify(cartData));
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -188,6 +228,9 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         setSurfProducts,
         kiteProducts,
         setKiteProducts,
+        addToCart,
+        cart,
+        setCart,
       }}
     >
       {children}

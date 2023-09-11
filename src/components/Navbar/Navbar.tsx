@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import "../../assets/images/surf-logo.png";
+import { useData } from "../../Context/DataContext";
 
-const Navbar = () => {
+const Navbar = ({ setShowCart }: NavbarProps) => {
+  const { cart } = useData()
   return (
     <div className="Navbar">
       <div className="logo"></div>
@@ -28,9 +30,10 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="outlet">
+          <div onClick={() => setShowCart(state => !state)}>
           <i className="fa-solid fa-cart-shopping"></i>
-          </NavLink>
+          {cart && cart.length}
+          </div>
         </li>
       </ul>
       

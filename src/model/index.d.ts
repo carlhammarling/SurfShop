@@ -6,10 +6,17 @@ interface DataContextProps {
     setSurfProducts: React.Dispatch<React.SetStateAction<Surfboard[]>>
     kiteProducts: Kite[]
     setKiteProducts: React.Dispatch<React.SetStateAction<Kite[]>>
+    addToCart: (category: string, id: number) => void;
+    cart: CartItem[]
+    setCart: React.Dispatch<React.SetStateAction<CartItem[]>>
 }
 
 interface DataProviderProps {
     children: ReactNode;
+}
+
+interface NavbarProps {
+    setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 
@@ -26,7 +33,7 @@ type BoardType = "Soft" | "Hard";
 type KiteType = "Kiteboard" | "Kite";
 
 interface Product {
-    id?: number
+    id: number
     category: ProductCategory
     productName: string
     imgURL: string
@@ -46,3 +53,9 @@ interface Kite extends Product {
 }
 
 type AllProduct = Surfboard | Kite 
+
+
+interface CartItem {
+    quantity: number
+    product: Surfboard | Kite
+}

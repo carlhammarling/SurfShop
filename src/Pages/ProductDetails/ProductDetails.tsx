@@ -12,6 +12,7 @@ const ProductDetails = () => {
   const index: number = parseInt(searchProps[2]) - 1;
 
   const data = useData();
+  const { addToCart } = useData()
   const [product, setProduct] = useState<AllProduct | undefined>(undefined);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ const ProductDetails = () => {
               {/* Kite */}
               {product.category === "kiteproducts" && (
                 <p className="description">
-                  {product.productName} {product.kiteType.toLowerCase()}.
+                  {product.productName.toUpperCase()} {product.kiteType.toUpperCase()}
                 </p>
               )}
               <p className="extraInfo">
@@ -79,7 +80,7 @@ const ProductDetails = () => {
                   
                 </div>
               <button className="buy"
-                onClick={() => localStorage.setItem("buy", product.productName)}
+                onClick={() => addToCart(product.category, product.id)}
               >
                 BUY NOW &nbsp;
                 <i className="fa-solid fa-arrow-right"></i>
