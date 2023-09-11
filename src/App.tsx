@@ -5,7 +5,7 @@ import Cart from "./Pages/Cart/Cart";
 import SurfProducts from "./Pages/SurfProducts/SurfProducts";
 import RootLayout from "./layouts/RootLayout/RootLayout";
 import KiteProducts from "./Pages/KiteProducts/KiteProducts";
-import SurfDetails from "./Pages/SurfDetails/SurfDetails";
+import SurfDetails from "./Pages/ProductDetails/ProductDetails";
 
 const App = () => {
   return (
@@ -17,6 +17,7 @@ const App = () => {
           <Route path="/surfproducts" element={<SurfProducts />} />
           <Route path="/surfproducts/:id" element={<SurfDetails />} />
           <Route path="/kiteproducts" element={<KiteProducts /> } />
+          <Route path="/kiteproducts/:id" element={<SurfDetails />} />
           {/* <Route path="/kiteproducts/:id" element={<ProductDetails />} /> */}
         </Route>
       </Routes>

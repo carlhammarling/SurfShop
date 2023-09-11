@@ -23,7 +23,7 @@ interface Category {
 type ProductCategory = "surfproducts" | "kiteproducts";
 type BoardType = "Soft" | "Hard";
 
-type KiteType = "Board" | "Kite";
+type KiteType = "Kiteboard" | "Kite";
 
 interface Product {
     id?: number
@@ -37,9 +37,12 @@ interface Product {
 
 interface Surfboard extends Product {
     length: number
+    category: "surfproducts"
     boardType: BoardType
 }
 interface Kite extends Product {
     kiteType: KiteType
+    category: "kiteproducts"
 }
 
+type AllProduct = Surfboard | Kite 

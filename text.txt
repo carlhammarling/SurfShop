@@ -1,0 +1,19 @@
+Importera useState utan if-sats när man loopar utan
+
+Component som kan ta in flera oliak interface o loop
+
+
+Type Extender
+Vill ha ett productcard som kan ta in 2 olika interfaces.
+
+Product1 
+
+Product 2
+
+Productcard ska kunan ta in båda
+
+När jag skriver ut det
+Om tex produkt 2 har 2 fält till vill jag att den ska loopa ut det , men annars inte. Om jag gör så så hittar den inte alla variabler.
+
+
+//Hur mna klänkar till olika sidor för att det fortfarande ska finnas

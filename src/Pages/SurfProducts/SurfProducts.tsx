@@ -10,7 +10,7 @@ const { surfProducts } = useData();
   return (
     <div className="surfWrapper">
       <div className="surfBanner">
-        <h1>SURFBOARDS</h1>
+        <h1 className="bannerFont">SURFBOARDS</h1>
       </div>
       <div className="productsOutput">
         {surfProducts &&

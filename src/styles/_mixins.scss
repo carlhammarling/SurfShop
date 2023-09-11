@@ -1,0 +1,37 @@
+@import './variables';
+@mixin blueButton {
+        color: white;
+        text-decoration: none;
+        font-family: Odibee Sans;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        background: $blue;
+        background: $linearBlue;
+        
+        height: 45px;
+        width: 190px;
+        padding-left: 1rem;
+        transition: .3s ease-in-out;
+
+        &:hover {
+         background: $linearBlueDarker;
+
+        }
+}
+@mixin whiteButton {
+        color: $darkGray;
+        border: 1px solid $darkGray;
+        text-decoration: none;
+        font-family: Odibee Sans;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        background: transparent;
+      
+        
+        height: 45px;
+        width: 190px;
+        padding-left: 1rem;
+        transition: .3s ease-in-out;
+}

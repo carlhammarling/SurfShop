@@ -1,39 +1,29 @@
+@use "../../styles/mixins";
+
 .categoryCardWrapper {
   position: relative;
   overflow: hidden;
 
   &:hover {
     .catImgWrapper {
-        scale: 1.05;
+      scale: 1.05;
     }
   }
   .catImgWrapper {
     height: 290px;
     background-image: url("https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     background-size: cover;
-    transition: .4s;
+    transition: 0.4s;
 
     @media (max-width: 450px) {
       height: 230px;
-
     }
   }
 
-
   a {
-    color: white;
-    text-decoration: none;
+    @include mixins.blueButton;
     position: absolute;
-
-    display: flex;
-    align-items: center;
-    background: #0066bf;
-    background: linear-gradient(140deg, rgba(0,102,191,1) 0%, rgba(0,143,191,1) 100%);
     margin: 1rem;
     bottom: 0;
-    height: 45px;
-    width: 190px;
-    padding-left: 1rem;
-    transition: .3s ease-in-out;
   }
 }

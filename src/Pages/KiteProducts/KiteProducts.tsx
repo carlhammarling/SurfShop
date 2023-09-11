@@ -10,7 +10,7 @@ const { kiteProducts} = useData();
   return (
     <div className="kiteWrapper">
       <div className="kiteBanner">
-        <h1>KITESURF</h1>
+        <h1 className="bannerFont">KITESURF</h1>
       </div>
       <div className="productsOutput">
         {kiteProducts &&

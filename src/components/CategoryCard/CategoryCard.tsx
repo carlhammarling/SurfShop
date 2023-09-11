@@ -6,7 +6,7 @@ const CategoryCard = ({ catName, imgURL, link}: Category) => {
     <div className="categoryCardWrapper">
       <div className="catImgWrapper" style={{ backgroundImage: `url(${imgURL})` }}></div>
         <Link className="categoryLink" to={link}>
-          {catName.toUpperCase()} <i className="fa-solid fa-arrow-right"></i>
+          {catName.toUpperCase()} &nbsp;<i className="fa-solid fa-arrow-right"></i>
         </Link>
     </div>
   );
