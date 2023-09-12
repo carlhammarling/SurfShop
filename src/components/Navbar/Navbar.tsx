@@ -27,8 +27,8 @@ const Navbar = ({ setShowCart }: HandleCartProps) => {
           <NavLink to="swimwear">SWIMWEAR</NavLink>
         </li>
         <li>
-          <NavLink className="redFont" to="outlet">
-            OUTLET
+          <NavLink className="redFont" to="admin">
+            ADMIN
           </NavLink>
         </li>
         <li>

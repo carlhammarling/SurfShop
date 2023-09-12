@@ -25,3 +25,16 @@ interface CartItemProps {
   item: CartItem;
   index: number;
 }
+
+
+interface AddProductProps {
+  category: ProductCategory;
+  productName: string;
+  imgURL: string;
+  length: number;
+  brand: string;
+  description: string;
+  price: number;
+  boardType: BoardType;
+  kiteType: KiteType;
+}

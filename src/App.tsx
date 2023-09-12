@@ -4,7 +4,8 @@ import Home from "./Pages/Home/Home";
 import SurfProducts from "./Pages/SurfProducts/SurfProducts";
 import RootLayout from "./layouts/RootLayout/RootLayout";
 import KiteProducts from "./Pages/KiteProducts/KiteProducts";
-import SurfDetails from "./Pages/ProductDetails/ProductDetails";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails";
+import Admin from "./Pages/Admin/Admin";
 
 const App = () => {
   return (
@@ -13,9 +14,10 @@ const App = () => {
         <Route path="/" element={<RootLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/surfproducts" element={<SurfProducts />} />
-          <Route path="/surfproducts/:id" element={<SurfDetails />} />
+          <Route path="/surfproducts/:id" element={<ProductDetails />} />
           <Route path="/kiteproducts" element={<KiteProducts /> } />
-          <Route path="/kiteproducts/:id" element={<SurfDetails />} />
+          <Route path="/kiteproducts/:id" element={<ProductDetails />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
       </Routes>
     </BrowserRouter>
