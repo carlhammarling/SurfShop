@@ -204,7 +204,8 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
       const existingCartItemIndex = cartData.findIndex(
         (item) =>
-          item.product.id === newCartItem.product.id && item.product.category === newCartItem.product.category
+          item.product.id === newCartItem.product.id &&
+          item.product.category === newCartItem.product.category
       );
 
       if (existingCartItemIndex !== -1) {
@@ -219,6 +220,52 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     }
   };
 
+  const deleteCartItem = (indexToRemove: number) => {
+    const existingCart: string | null = localStorage.getItem("cart");
+    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+
+    if (!cartData[indexToRemove]) {
+      console.log("No product to remove");
+      return;
+    }
+    const updatedArray: CartItem[] = cartData.filter(
+      (item, index) => index !== indexToRemove
+    );
+
+    setCart(updatedArray);
+    localStorage.setItem("cart", JSON.stringify(updatedArray));
+  };
+
+  const incrementCartItem = (itemIndex: number) => {
+    const existingCart: string | null = localStorage.getItem("cart");
+    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+
+    if (!cartData[itemIndex]) {
+      console.log("Could not find the product");
+      return;
+    }
+    cartData[itemIndex].quantity += 1;
+    setCart(cartData);
+    localStorage.setItem("cart", JSON.stringify(cartData));
+  };
+
+  const decrementCartItem = (itemIndex: number) => {
+    const existingCart: string | null = localStorage.getItem("cart");
+    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+
+    if (!cartData[itemIndex]) {
+      console.log("Could not find the product");
+      return;
+    }
+    if (cartData[itemIndex].quantity <= 1) {
+      cartData = cartData.filter((item, index) => index !== itemIndex);
+    } else {
+      cartData[itemIndex].quantity -= 1;
+    }
+    setCart(cartData);
+    localStorage.setItem("cart", JSON.stringify(cartData));
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -231,6 +278,9 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         addToCart,
         cart,
         setCart,
+        deleteCartItem,
+        incrementCartItem,
+        decrementCartItem,
       }}
     >
       {children}

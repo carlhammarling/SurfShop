@@ -3,8 +3,10 @@ import "./Navbar.scss";
 import "../../assets/images/surf-logo.png";
 import { useData } from "../../Context/DataContext";
 
-const Navbar = ({ setShowCart }: NavbarProps) => {
-  const { cart } = useData()
+const Navbar = ({ setShowCart }: HandleCartProps) => {
+  
+  const { cart } = useData();
+
   return (
     <div className="Navbar">
       <div className="logo"></div>
@@ -30,13 +32,18 @@ const Navbar = ({ setShowCart }: NavbarProps) => {
           </NavLink>
         </li>
         <li>
-          <div onClick={() => setShowCart(state => !state)}>
-          <i className="fa-solid fa-cart-shopping"></i>
-          {cart && cart.length}
+          <div
+            className="cartLink"
+            onClick={() => setShowCart((state) => !state)}
+          >
+            <i className="fa-solid fa-cart-shopping"></i>
+            
+              <div className={`cartCount ${cart && cart.length > 0 ? '' : 'hide'}`}>{cart.length}</div>
+            
+
           </div>
         </li>
       </ul>
-      
     </div>
   );
 };

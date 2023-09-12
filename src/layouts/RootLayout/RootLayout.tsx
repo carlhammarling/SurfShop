@@ -11,7 +11,7 @@ const RootLayout = () => {
     <div className='site'>
         <Navbar setShowCart={ setShowCart }/>
         <Outlet />
-        { showCart ? <Cart /> : ''}
+        { showCart ? <Cart setShowCart={ setShowCart } /> : ''}
         <Footer />
     </div>
   )

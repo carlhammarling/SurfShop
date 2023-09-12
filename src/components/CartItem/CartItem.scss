@@ -1,0 +1,56 @@
+@use "../../styles/mixins";
+@import "../../styles/variables";
+
+.CartItem {
+  display: flex;
+  padding-block: 2rem;
+  border-bottom: 1px solid $borderGray;
+
+  .productImgWrapper {
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    background-position: 100%;
+    background-repeat: no-repeat;
+  }
+
+  .itemInfo {
+    flex: 2;
+    
+    h2 {
+      color: $darkGray;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+
+    .extraInfo {
+      color: $infoGray;
+      font-weight: 600;
+
+      font-size: 13px;
+
+      span {
+        font-weight: 800;
+        color: $gray;
+      }
+      span.price {
+        font-weight: 800;
+        color: $blue;
+      }
+    }
+  }
+
+  .itemActions {
+    justify-self: flex-end;
+    display: flex;
+    flex-direction: column;
+
+    i {
+     cursor: pointer;
+    }
+  }
+}
