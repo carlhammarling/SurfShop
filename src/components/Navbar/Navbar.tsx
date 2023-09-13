@@ -31,7 +31,7 @@ const Navbar = ({ setShowCart }: HandleCartProps) => {
             ADMIN
           </NavLink>
         </li>
-        <li>
+        <li className="cartLi">
           <div
             className="cartLink"
             onClick={() => setShowCart((state) => !state)}

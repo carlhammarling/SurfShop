@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/kiteproducts" element={<KiteProducts /> } />
           <Route path="/kiteproducts/:id" element={<ProductDetails />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="*" element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>

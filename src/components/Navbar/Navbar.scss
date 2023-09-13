@@ -9,14 +9,18 @@
    display: flex;
    align-items: center;
    justify-content: flex-start;
-   padding-inline: 3rem;
+   padding-inline: 8rem;
    gap: 4rem;
    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.05);
 
+   @media (max-width: 1600px) { 
+    padding-inline: 5rem;
+
+   }
 
    .logo {
     height: 160px;
-    width: 160px;
+    min-width: 160px;
     background-image: url(../../assets/images/surf-logo.png);
     background-size: contain;
    }
@@ -24,6 +28,7 @@
    .Nav {
     list-style: none;
     display: flex;
+    width: 100%;
     gap: 4rem;
 
     a {
@@ -45,6 +50,12 @@
 
     .redFont {
         color: red;
+    }
+
+    .cartLi {
+        margin-left: auto;
+        padding-right: 2rem;
+
     }
 
     .cartLink {

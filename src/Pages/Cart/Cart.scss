@@ -48,8 +48,6 @@
 
   button.buy {
     @include mixins.blueButton;
-    border: 0;
-    cursor: pointer;
     margin: 2rem;
   }
 }

@@ -69,7 +69,7 @@ const Admin = () => {
       } else {
         console.log("You have to fill in all the forms");
       }
-      return
+      return;
     }
 
     if (formData.category === "kiteproducts") {
@@ -92,7 +92,7 @@ const Admin = () => {
       } else {
         console.log("You have to fill in all the forms");
       }
-      return
+      return;
     } else {
       console.log("Can not find a category with that name.");
     }
@@ -100,83 +100,115 @@ const Admin = () => {
 
   return (
     <div className="adminWrapper">
-      <div className="adminHeader">
-        <h1>Admin</h1>
-        <p>
-          In this section you will be able to add products to the store. Since
-          this site is online, the changes will only be saved on localstorage
-          for you to watch.
-        </p>
-        <form onSubmit={handelSubmit}>
-          <select
-            value={formData.category}
-            onChange={handleChange}
-            name="category"
-          >
-            <option value="" disabled>Select a product category</option>
-            <option value="surfproducts">Surf product</option>
-            <option value="kiteproducts">Kite product</option>
-          </select>
-          <input
-            type="text"
-            onChange={handleChange}
-            name="productName"
-            value={formData.productName}
-            placeholder="Product name"
-          />
-          <input
-            type="text"
-            onChange={handleChange}
-            name="brand"
-            value={formData.brand}
-            placeholder="Brand"
-          />
-          <input
-            type="text"
-            onChange={handleChange}
-            name="imgURL"
-            value={formData.imgURL}
-            placeholder="Image URL"
-          />
-          <input
-            type="text"
-            onChange={handleChange}
-            name="description"
-            value={formData.description}
-            placeholder="Description"
-          />
-          <input
-            type="string"
-            onChange={handleNumberChange}
-            name="price"
-            value={formData.price}
-            placeholder="Price (EUR)"
-          />
-          {formData && formData.category === "surfproducts" && (
-            <>
-              <input
-                type="string"
-                onChange={handleNumberChange}
-                name="boardLength"
-                value={formData.boardLength}
-                placeholder="Length (in feet)"
-              />
-              <select value={formData.boardType} name="boardType" onChange={handleChange}>
-                <option value="" disabled>Select a type</option>
-                <option value="Soft">Softboard</option>
-                <option value="hard">Hardboard</option>
-              </select>
-            </>
-          )}
-          {formData && formData.category === "kiteproducts" && (
-            <select value={formData.kiteType} name="kiteType" onChange={handleChange}>
-              <option value="" disabled>Select a type</option>
-              <option value="Kiteboard">Kiteboard</option>
-              <option value="Kite">Kite</option>
+      <div className="adminContent">
+
+      <div className="adminLeft">
+        <div className="adminInfo">
+          <h1>Admin</h1>
+          <div className="description">
+            <p>
+              In this section you will be able to add products to the store.
+            </p>
+            <p>
+              Since this site is online, the changes will only be saved on
+              localstorage for you to watch.
+            </p>
+          </div>
+          <p className="extraInfo">
+            * The rest of the site is connected to Firestore, this can easily be
+            done with this feauture as well so that the changes go online.{" "}
+          </p>
+        </div>
+      </div>
+      <div className="adminRight">
+      <form onSubmit={handelSubmit}>
+        <select
+          value={formData.category}
+          onChange={handleChange}
+          name="category"
+        >
+          <option value="" disabled>
+            Select a product category
+          </option>
+          <option value="surfproducts">Surf product</option>
+          <option value="kiteproducts">Kite product</option>
+        </select>
+        <input
+          type="text"
+          onChange={handleChange}
+          name="productName"
+          value={formData.productName}
+          placeholder="Product name"
+        />
+        <input
+          type="text"
+          onChange={handleChange}
+          name="brand"
+          value={formData.brand}
+          placeholder="Brand"
+        />
+        <input
+          type="text"
+          onChange={handleChange}
+          name="imgURL"
+          value={formData.imgURL}
+          placeholder="Image URL"
+        />
+        <input
+          type="text"
+          onChange={handleChange}
+          name="description"
+          value={formData.description}
+          placeholder="Description"
+        />
+        <input
+          type="string"
+          onChange={handleNumberChange}
+          name="price"
+          value={formData.price}
+          placeholder="Price (EUR)"
+        />
+        {formData && formData.category === "surfproducts" && (
+          <>
+            <input
+              type="string"
+              onChange={handleNumberChange}
+              name="boardLength"
+              value={formData.boardLength}
+              placeholder="Length (in feet)"
+            />
+            <select
+              value={formData.boardType}
+              name="boardType"
+              onChange={handleChange}
+            >
+              <option value="" disabled>
+                Select a type
+              </option>
+              <option value="Soft">Softboard</option>
+              <option value="hard">Hardboard</option>
             </select>
-          )}
-          <button>ADD PRODUCT</button>
-        </form>
+          </>
+        )}
+        {formData && formData.category === "kiteproducts" && (
+          <select
+            value={formData.kiteType}
+            name="kiteType"
+            onChange={handleChange}
+          >
+            <option value="" disabled>
+              Select a type
+            </option>
+            <option value="Kiteboard">Kiteboard</option>
+            <option value="Kite">Kite</option>
+          </select>
+        )}
+        <button>
+          ADD PRODUCT &nbsp;<i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      </div>
       </div>
     </div>
   );

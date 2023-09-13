@@ -1,7 +1,6 @@
 .homeWrapper {
   padding-top: 170px;
   .homeBanner {
-    // height: 400px;
     height: 25vw;
     background-image: url("https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
     background-size: cover;
@@ -19,8 +18,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
-    margin: 5rem;
+    margin: 5rem 8rem;
 
+    @media (max-width: 1600px) {
+      margin: 5rem;
+    }
     @media (max-width: 1200px) {
       grid-template-columns: 1fr 1fr;
     }
