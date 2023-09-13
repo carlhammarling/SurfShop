@@ -1,94 +1,124 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .Navbar {
-   height: 180px;
-   width: 100%;
-   background-color: white;
-   position: fixed;
-   z-index: 3;
-   display: flex;
-   align-items: center;
-   justify-content: flex-start;
-   padding-inline: 8rem;
-   gap: 4rem;
-   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.05);
+  height: 180px;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-inline: 8rem;
+  gap: 4rem;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.05);
 
-   @media (max-width: 1600px) { 
-    padding-inline: 5rem;
+ 
 
-   }
-
-   .logo {
+  .logo {
     height: 160px;
     min-width: 160px;
     background-image: url(../../assets/images/surf-logo.png);
     background-size: contain;
-   }
+  }
 
-   .Nav {
+  .Nav {
     list-style: none;
     display: flex;
     width: 100%;
     gap: 4rem;
 
+    @media (max-width: 1200px) {
+      gap: 3rem;
+    }
+    @media (max-width: 1100px) {
+      gap: 2rem;
+    }
+
     a {
-        color: $darkGray;
-        text-decoration: none;
-        transition: .3s ease-in-out;
+      color: $darkGray;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
 
-        &:hover {
-            text-decoration: underline;
-        }
-
-       
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .active {
-        text-decoration: underline;
-
+      text-decoration: underline;
     }
 
     .redFont {
-        color: red;
+      color: red;
     }
 
     .cartLi {
-        margin-left: auto;
-        padding-right: 2rem;
+      margin-left: auto;
+      padding-right: 2rem;
+    }
 
+    .dropDown {
+        display: none;
     }
 
     .cartLink {
-        position: relative;
-        cursor: pointer;
-        .cartCount {
-            position: absolute;
-            opacity: 1;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            border-radius: 50%;
-            font-family: $normalFont;
-            color: white;
-            top: -12px;
-            right: -12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            font-weight: 800;
-            transition: .3s ease-in-out;
-        }
+      position: relative;
+      cursor: pointer;
+      .cartCount {
+        position: absolute;
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        font-family: $normalFont;
+        color: white;
+        top: -12px;
+        right: -12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 800;
+        transition: 0.3s ease-in-out;
+      }
 
-        .hide {
-            opacity: 0;
-            top: 0px;
-            right: 0px;
-        }
+      .hide {
+        opacity: 0;
+        top: 0px;
+        right: 0px;
+      }
+    }
+  }
+
+  @media (max-width: 1600px) {
+    padding-inline: 5rem;
+  }
+  @media (max-width: 1100px) {
+    height: 100px;
+
+    .logo {
+      height: 100px;
+      min-width: 100px;
+    }
+    .desktopLink {
+      display: none;
     }
 
+    .Nav .dropDown {
+        display: block;
+    }
 
+    .Nav .cartLi {
+        padding-right: 0rem;
+      }
+   
+  }
+  @media (max-width: 550px) { 
+        padding-inline: 2rem;
 
+  
+  }
 
-   }
 }

@@ -1,5 +1,9 @@
 .homeWrapper {
   padding-top: 170px;
+
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+  }
   .homeBanner {
     height: 25vw;
     background-image: url("https://images.pexels.com/photos/416676/pexels-photo-416676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");

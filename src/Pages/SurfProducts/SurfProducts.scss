@@ -1,5 +1,8 @@
 .surfWrapper {
   padding-top: 170px;
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+  }
   .surfBanner {
     height: 25vw;
     background-image: url("https://images.pexels.com/photos/3660189/pexels-photo-3660189.jpeg?auto=compress&cs=tinysrgb&w=800");

@@ -1,5 +1,9 @@
 .kiteWrapper {
   padding-top: 170px;
+
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+  }
   .kiteBanner {
     height: 25vw;
     background-image: url("https://images.pexels.com/photos/1604869/pexels-photo-1604869.jpeg?auto=compress&cs=tinysrgb&w=1600");
