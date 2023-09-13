@@ -3,16 +3,17 @@ import "./Admin.scss";
 import { useData } from "../../Context/DataContext";
 
 const Admin = () => {
-  const { setSurfProducts, setKiteProducts } = useData();
+  const { surfProducts, setSurfProducts, kiteProducts, setKiteProducts } =
+    useData();
 
   const [formData, setFormData] = useState<AddProductProps>({
-    category: "surfproducts",
+    category: "",
     productName: "",
     imgURL: "",
     brand: "",
     description: "",
-    price: 0,
-    length: 0,
+    price: "",
+    boardLength: "",
     boardType: "Soft",
     kiteType: "Kite",
   });
@@ -28,37 +29,72 @@ const Admin = () => {
     });
   };
 
-  const handelSubmit = (e: any) => {
+  const handleNumberChange = (e: React.FormEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const input = e.currentTarget;
+    const inputValue = input.value;
+
+    const sanitizedValue = inputValue.replace(/[^0-9.]/g, "");
+
+    input.value = sanitizedValue;
+
+    setFormData({
+      ...formData,
+      [input.name]: sanitizedValue,
+    });
+  };
+
+  const handelSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (formData.category === "surfproducts") {
       const newSurfProduct: Surfboard = {
-        id: 1,
+        //Gets the last products id and adds 1
+        id: surfProducts[surfProducts.length - 1].id + 1,
         category: formData.category,
         productName: formData.productName,
         imgURL: formData.imgURL,
         brand: formData.brand,
         description: formData.description,
-        price: formData.price,
-        length: formData.length,
+        price: parseFloat(formData.price),
+        length: parseFloat(formData.boardLength),
         boardType: formData.boardType,
       };
 
-      setSurfProducts((prevProd) => [...prevProd, newSurfProduct]);
+      const isNotEmpty = Object.values(newSurfProduct).every(
+        (value) => value !== ""
+      );
+      if (isNotEmpty) {
+        setSurfProducts((prevProd) => [...prevProd, newSurfProduct]);
+      } else {
+        console.log("You have to fill in all the forms");
+      }
+      return
     }
+
     if (formData.category === "kiteproducts") {
       const newKiteProduct: Kite = {
-        id: 1,
+        id: kiteProducts[kiteProducts.length - 1].id + 1,
         category: formData.category,
         productName: formData.productName,
         imgURL: formData.imgURL,
         brand: formData.brand,
         description: formData.description,
-        price: formData.price,
+        price: parseFloat(formData.price),
         kiteType: formData.kiteType,
       };
 
-      setKiteProducts((prevProd) => [...prevProd, newKiteProduct]);
+      const isNotEmpty = Object.values(newKiteProduct).every(
+        (value) => value !== ""
+      );
+      if (isNotEmpty) {
+        setKiteProducts((prevProd) => [...prevProd, newKiteProduct]);
+      } else {
+        console.log("You have to fill in all the forms");
+      }
+      return
+    } else {
+      console.log("Can not find a category with that name.");
     }
   };
 
@@ -76,8 +112,8 @@ const Admin = () => {
             value={formData.category}
             onChange={handleChange}
             name="category"
-            placeholder="Category"
           >
+            <option value="" disabled>Select a product category</option>
             <option value="surfproducts">Surf product</option>
             <option value="kiteproducts">Kite product</option>
           </select>
@@ -110,33 +146,31 @@ const Admin = () => {
             placeholder="Description"
           />
           <input
-            type="number"
-            onChange={handleChange}
+            type="string"
+            onChange={handleNumberChange}
             name="price"
             value={formData.price}
-            placeholder="Price"
+            placeholder="Price (EUR)"
           />
           {formData && formData.category === "surfproducts" && (
             <>
               <input
-                type="number"
-                onChange={handleChange}
-                name="length"
-                value={formData.length}
-                placeholder="Length"
+                type="string"
+                onChange={handleNumberChange}
+                name="boardLength"
+                value={formData.boardLength}
+                placeholder="Length (in feet)"
               />
-              <select
-                name="boardType"
-                onChange={handleChange}
-                defaultValue="Board type"
-              >
-                <option value="Soft">Soft board</option>
-                <option value="hard">Hard board</option>
+              <select value={formData.boardType} name="boardType" onChange={handleChange}>
+                <option value="" disabled>Select a type</option>
+                <option value="Soft">Softboard</option>
+                <option value="hard">Hardboard</option>
               </select>
             </>
           )}
           {formData && formData.category === "kiteproducts" && (
-            <select name="kiteType" id="" defaultValue="Board type">
+            <select value={formData.kiteType} name="kiteType" onChange={handleChange}>
+              <option value="" disabled>Select a type</option>
               <option value="Kiteboard">Kiteboard</option>
               <option value="Kite">Kite</option>
             </select>

@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import { getCart } from "./Helper";
 
 const DataContext = createContext<DataContextProps | undefined>(undefined);
 
@@ -179,6 +180,15 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     },
   ]);
 
+  //I dont want to store this on the DB, beacuse then the added products would be visible to everyone.
+  //I am just demonstrating that it is possible to update the DB for the user. 
+  useEffect(() => {
+    localStorage.setItem('surfProducts', JSON.stringify(surfProducts))
+  }, [surfProducts])
+  useEffect(() => {
+    localStorage.setItem('kiteProducts', JSON.stringify(kiteProducts))
+  }, [kiteProducts])
+
   const [cart, setCart] = useState<CartItem[]>([]);
 
   //CART FUNCTION
@@ -199,8 +209,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
         product: productToAdd,
       };
 
-      const existingCart: string | null = localStorage.getItem("cart");
-      let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+      let cartData: CartItem[] = getCart()
 
       const existingCartItemIndex = cartData.findIndex(
         (item) =>
@@ -221,8 +230,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   };
 
   const deleteCartItem = (indexToRemove: number) => {
-    const existingCart: string | null = localStorage.getItem("cart");
-    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+    let cartData: CartItem[] = getCart()
 
     if (!cartData[indexToRemove]) {
       console.log("No product to remove");
@@ -237,8 +245,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   };
 
   const incrementCartItem = (itemIndex: number) => {
-    const existingCart: string | null = localStorage.getItem("cart");
-    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+    let cartData: CartItem[] = getCart()
 
     if (!cartData[itemIndex]) {
       console.log("Could not find the product");
@@ -250,8 +257,7 @@ export const DataProvider = ({ children }: DataProviderProps) => {
   };
 
   const decrementCartItem = (itemIndex: number) => {
-    const existingCart: string | null = localStorage.getItem("cart");
-    let cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
+    let cartData: CartItem[] = getCart()
 
     if (!cartData[itemIndex]) {
       console.log("Could not find the product");

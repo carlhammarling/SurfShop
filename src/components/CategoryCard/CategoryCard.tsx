@@ -3,12 +3,12 @@ import "./CategoryCard.scss";
 
 const CategoryCard = ({ catName, imgURL, link}: Category) => {
   return (
-    <div className="categoryCardWrapper">
+    <Link to={link} className="categoryCardWrapper">
       <div className="catImgWrapper" style={{ backgroundImage: `url(${imgURL})` }}></div>
-        <Link className="categoryLink" to={link}>
+        <div className="categoryLink">
           {catName.toUpperCase()} &nbsp;<i className="fa-solid fa-arrow-right"></i>
-        </Link>
-    </div>
+        </div>
+    </Link>
   );
 };
 

@@ -3,7 +3,7 @@ import "./Cart.scss";
 import { useData } from "../../Context/DataContext";
 import CartItem from "../../components/CartItem/CartItem";
 
-const Cart = ({ setShowCart }: HandleCartProps) => {
+const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
   const { cart, setCart } = useData();
 
   //Är den här nödvändig? Den ser ju till att det uppdateras innan ,
@@ -19,7 +19,8 @@ const Cart = ({ setShowCart }: HandleCartProps) => {
   useEffect(() => {}, [cart]);
 
   return (
-    <div className="CartWrapper">
+    // <div className="CartWrapper">
+    <div className={`CartWrapper ${showCart ? '' : 'hide'}`}>
       <div className="CartHeader">
         <h1>
           <i className="fa-solid fa-cart-shopping"></i>

@@ -19,6 +19,7 @@ interface DataProviderProps {
 
 interface HandleCartProps {
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+  showCart?: boolean
 }
 
 interface CartItemProps {
@@ -28,13 +29,13 @@ interface CartItemProps {
 
 
 interface AddProductProps {
-  category: ProductCategory;
+  category: string;
   productName: string;
   imgURL: string;
-  length: number;
+  boardLength: string;
   brand: string;
   description: string;
-  price: number;
+  price: string;
   boardType: BoardType;
   kiteType: KiteType;
 }

@@ -2,8 +2,7 @@
 @import "../../styles/variables";
 
 .surfDetailsWrapper {
-  padding-top: 190px;
-  margin-block: 1rem;
+  padding-top: 200px;
 
   display: flex;
   @media (max-width: 750px) {
@@ -21,6 +20,8 @@
       background-size: contain;
       background-position: 100%;
       background-repeat: no-repeat;
+      margin-bottom: 1rem;
+
       @media (max-width: 750px) {
         height: 100vw;
       }

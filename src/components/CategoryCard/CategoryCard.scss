@@ -20,7 +20,7 @@
     }
   }
 
-  a {
+  .categoryLink {
     @include mixins.blueButton;
     position: absolute;
     margin: 1rem;
