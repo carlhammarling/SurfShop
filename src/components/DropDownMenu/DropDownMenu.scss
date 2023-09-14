@@ -1,0 +1,80 @@
+@use "../../styles/mixins";
+@import "../../styles/variables";
+
+.MenuWrapper {
+  position: fixed;
+  background: white;
+  right: 0px;
+  top: 180px;
+  width: 500px;
+  height: calc(100dvh - 180px);
+  font-family: $normalFont;
+  display: none;
+  flex-direction: column;
+  box-shadow: -20px 10px 50px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.5s ease-in-out;
+
+  @media (max-width: 1100px) {
+    display: flex;
+
+    top: 100px;
+    height: calc(100dvh - 100px);
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+
+  &.hide {
+    top: -100vh;
+  }
+
+  
+  .fa-xmark {
+    cursor: pointer;
+    padding-right: 3px;
+  }
+
+  .MenuItemContainer {
+    overflow: scroll;
+    margin-inline: 2rem;
+    flex: 1;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      // margin-top: 1rem;
+
+      li {
+        padding-block: 2rem;
+        border-bottom: 1px solid $borderGray;
+        display: flex;
+        justify-content: space-between;
+
+        &:last-of-type {
+          border-bottom: 0px solid $borderGray;
+
+        }
+      }
+
+      a {
+        color: $darkGray;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .active {
+        text-decoration: underline;
+      }
+
+      .redFont {
+        color: red;
+      }
+    }
+  }
+}

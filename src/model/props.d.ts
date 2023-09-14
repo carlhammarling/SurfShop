@@ -19,12 +19,19 @@ interface DataProviderProps {
 
 interface HandleCartProps {
   setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
-  showCart?: boolean
+  showCart: boolean
 }
+interface HandleMenuProps {
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  showMenu?: boolean
+}
+
+type NavbarProps = HandleCartProps & HandleMenuProps
 
 interface CartItemProps {
   item: CartItem;
   index: number;
+  showCart: boolean;
 }
 
 

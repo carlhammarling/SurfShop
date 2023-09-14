@@ -1,4 +1,4 @@
-@use '../../styles/mixins';
+@use "../../styles/mixins";
 @import "../../styles/variables";
 
 .surfDetailsWrapper {
@@ -48,12 +48,10 @@
       }
       & > * {
         margin-bottom: 1.5rem;
-        
       }
       h1 {
         color: $darkGray;
         margin-bottom: 2rem;
-        
       }
       .description {
         color: $darkGray;
@@ -62,15 +60,16 @@
       }
 
       .rating {
-        color: $yellow;
         padding-block: 1rem;
         border-block: 1px solid $borderGray;
+        .fa-star {
+          color: $yellow;
+        }
       }
 
       .priceInfo {
         padding-bottom: 1.5rem;
         border-bottom: 1px solid $borderGray;
-
       }
 
       .price {
@@ -81,24 +80,16 @@
       .extraInfo {
         color: $infoGray;
         font-size: 13px;
-        
       }
-
 
       button.buy {
         @include mixins.blueButton;
         border: 0;
         cursor: pointer;
-        
-
-        
-        
       }
       button.back {
         @include mixins.whiteButton;
         cursor: pointer;
-        
-        
       }
     }
   }

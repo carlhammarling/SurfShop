@@ -3,8 +3,23 @@ import "./Navbar.scss";
 import "../../assets/images/surf-logo.png";
 import { useData } from "../../Context/DataContext";
 
-const Navbar = ({ setShowCart }: HandleCartProps) => {
+const Navbar = ({
+  setShowCart,
+  showCart,
+  setShowMenu,
+  showMenu,
+}: NavbarProps) => {
   const { cart } = useData();
+
+  const switchMenu = () => {
+      setShowCart((state) => !state);
+      setShowMenu(false);
+
+  };
+  const switchCart= () => {
+      setShowMenu((state) => !state);
+      setShowCart(false);
+  };
 
   return (
     <div className="Navbar">
@@ -19,6 +34,9 @@ const Navbar = ({ setShowCart }: HandleCartProps) => {
         <li className="desktopLink">
           <NavLink to="kiteproducts">KITESURF</NavLink>
         </li>
+        {/* <li className="desktopLink">
+          <NavLink to="wetsuits">WETSUITS</NavLink>
+        </li> */}
         <li className="desktopLink">
           <NavLink to="swimwear">SWIMWEAR</NavLink>
         </li>
@@ -28,10 +46,7 @@ const Navbar = ({ setShowCart }: HandleCartProps) => {
           </NavLink>
         </li>
         <li className="cartLi">
-          <div
-            className="cartLink"
-            onClick={() => setShowCart((state) => !state)}
-          >
+          <div className="cartLink" onClick={switchMenu}>
             <i className="fa-solid fa-cart-shopping"></i>
 
             <div
@@ -42,7 +57,9 @@ const Navbar = ({ setShowCart }: HandleCartProps) => {
           </div>
         </li>
         <li className="dropDown">
-          <i className="fa-solid fa-bars"></i>
+          <div onClick={switchCart}>
+            <i className="fa-solid fa-bars"></i>
+          </div>
         </li>
       </ul>
     </div>

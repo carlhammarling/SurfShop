@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import "./Cart.scss";
 import { useData } from "../../Context/DataContext";
-import CartItem from "../../components/CartItem/CartItem";
+import CartItem from "../CartItem/CartItem";
 
 const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
   const { cart, setCart } = useData();
 
-  //Är den här nödvändig? Den ser ju till att det uppdateras innan ,
-  //men samtidigt ska det ha gjorts innan. Men om jag tar bort saker här så vill jaju att den updateras också
   useEffect(() => {
     const getCart = localStorage.getItem("cart");
     let cartData: CartItem[] = getCart ? JSON.parse(getCart) : [];
@@ -19,8 +17,7 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
   useEffect(() => {}, [cart]);
 
   return (
-    // <div className="CartWrapper">
-    <div className={`CartWrapper ${showCart ? '' : 'hide'}`}>
+    <div className={`CartWrapper ${showCart ? "" : "hide"}`}>
       <div className="CartHeader">
         <h1>
           <i className="fa-solid fa-cart-shopping"></i>
@@ -30,7 +27,9 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
       </div>
       <div className="CartItemContainer">
         {cart &&
-          cart.map((item, index) => <CartItem key={index} item={item} index={index} />)}
+          cart.map((item, index) => (
+            <CartItem key={index} item={item} index={index} showCart={showCart} />
+          ))}
       </div>
       <button className="buy">
         PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>

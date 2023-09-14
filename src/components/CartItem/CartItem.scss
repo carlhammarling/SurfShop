@@ -45,12 +45,49 @@
   }
 
   .itemActions {
+    font-size: 20px;
+    gap: 1.5rem;
+    color: $gray;
     justify-self: flex-end;
     display: flex;
     flex-direction: column;
 
     i {
      cursor: pointer;
+    }
+
+    .fa-pen {
+      opacity: 50%;
+    }
+  }
+
+  .editQty {
+    .qtySelect {
+      display: flex;
+      margin-top: .5rem;
+      align-items: center;
+      font-weight: 600;
+      color: $infoGray;
+      & > * {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      .qty {
+        background: $linearBlue;
+        border-radius: 50%;
+        cursor: pointer;
+        i {
+          color: white;
+        }
+      }
     }
   }
 }
