@@ -17,6 +17,7 @@ const Home = () => {
           {categories && categories.map(item => (
             <CategoryCard 
             key={item.id}
+            id={item.id}
             catName={item.catName}
             imgURL={item.imgURL}
             link={item.link}

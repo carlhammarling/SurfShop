@@ -5,7 +5,7 @@ import { useData } from '../../Context/DataContext';
 
 const KiteProducts = () => {
 
-const { kiteProducts} = useData();
+const { kiteProducts } = useData();
 
   return (
     <div className="kiteWrapper">

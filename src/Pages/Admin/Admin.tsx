@@ -64,7 +64,7 @@ const Admin = () => {
         boardType: formData.boardType,
       };
 
-      const isNotEmpty = Object.values(newSurfProduct).every(
+      const isNotEmpty: boolean = Object.values(newSurfProduct).every(
         (value) => value !== ""
       );
       if (isNotEmpty) {
@@ -89,7 +89,7 @@ const Admin = () => {
         kiteType: formData.kiteType,
       };
 
-      const isNotEmpty = Object.values(newKiteProduct).every(
+      const isNotEmpty: boolean = Object.values(newKiteProduct).every(
         (value) => value !== ""
       );
       if (isNotEmpty) {

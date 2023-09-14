@@ -6,8 +6,8 @@ import Cart from "../../components/Cart/Cart";
 import DropDownMenu from "../../components/DropDownMenu/DropDownMenu";
 
 const RootLayout = () => {
-  const [showCart, setShowCart] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const [showMenu, setShowMenu] = useState<boolean>(false);
 
   return (
     <div className="site">

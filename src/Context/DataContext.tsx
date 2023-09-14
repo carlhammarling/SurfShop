@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { getCart } from "./Helper";
 import { db } from "../firebase";
-import { collection, onSnapshot } from "firebase/firestore";
+import { CollectionReference, collection, onSnapshot } from "firebase/firestore";
 
 const DataContext = createContext<DataContextProps | undefined>(undefined);
 
@@ -188,8 +188,8 @@ export const DataProvider = ({ children }: DataProviderProps) => {
     // },
   ]);
 
-  const docRefSurf = collection(db, "surfProducts");
-  const docRefKite = collection(db, "kiteProducts");
+  const docRefSurf:CollectionReference = collection(db, "surfProducts");
+  const docRefKite:CollectionReference = collection(db, "kiteProducts");
 
   useEffect(() => {
     onSnapshot(docRefSurf, (querySnapshot) => {

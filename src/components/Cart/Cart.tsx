@@ -7,7 +7,7 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
   const { cart, setCart } = useData();
 
   useEffect(() => {
-    const getCart = localStorage.getItem("cart");
+    const getCart: string | null = localStorage.getItem("cart");
     let cartData: CartItem[] = getCart ? JSON.parse(getCart) : [];
     if (cartData) {
       setCart(cartData);

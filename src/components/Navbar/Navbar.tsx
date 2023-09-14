@@ -16,7 +16,7 @@ const Navbar = ({
       setShowMenu(false);
 
   };
-  const switchCart= () => {
+  const switchCart = () => {
       setShowMenu((state) => !state);
       setShowCart(false);
   };

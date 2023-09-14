@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CategoryCard.scss";
 
-const CategoryCard = ({ catName, imgURL, link}: Category) => {
+const CategoryCard = ({ id, catName, imgURL, link}: Category) => {
   return (
     <Link to={link} className="categoryCardWrapper">
       <div className="catImgWrapper" style={{ backgroundImage: `url(${imgURL})` }}></div>
