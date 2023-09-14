@@ -26,22 +26,22 @@ const Navbar = ({
       <div className="logo"></div>
       <ul className="Nav">
         <li className="desktopLink">
-          <NavLink to="/">HOME</NavLink>
+          <NavLink to="/" onClick={() => setShowCart(false)}>HOME</NavLink>
         </li>
         <li className="desktopLink">
-          <NavLink to="surfproducts">SURFBOARDS</NavLink>
+          <NavLink to="surfproducts" onClick={() => setShowCart(false)}>SURFBOARDS</NavLink>
         </li>
         <li className="desktopLink">
-          <NavLink to="kiteproducts">KITESURF</NavLink>
+          <NavLink to="kiteproducts" onClick={() => setShowCart(false)}>KITESURF</NavLink>
         </li>
         {/* <li className="desktopLink">
           <NavLink to="wetsuits">WETSUITS</NavLink>
         </li> */}
         <li className="desktopLink">
-          <NavLink to="swimwear">SWIMWEAR</NavLink>
+          <NavLink to="swimwear" onClick={() => setShowCart(false)}>SWIMWEAR</NavLink>
         </li>
         <li className="desktopLink">
-          <NavLink className="redFont" to="admin">
+          <NavLink className="redFont" to="admin" onClick={() => setShowCart(false)}>
             ADMIN
           </NavLink>
         </li>
