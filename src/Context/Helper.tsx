@@ -4,3 +4,5 @@ export const getCart = () => {
     const cartData: CartItem[] = existingCart ? JSON.parse(existingCart) : [];
     return cartData
 }
+
+
