@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./Admin.scss";
 import { useData } from "../../Context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const { surfProducts, setSurfProducts, kiteProducts, setKiteProducts } =
     useData();
+
+    const navigate = useNavigate()
 
   const [formData, setFormData] = useState<AddProductProps>({
     category: "",
@@ -66,6 +69,8 @@ const Admin = () => {
       );
       if (isNotEmpty) {
         setSurfProducts((prevProd) => [...prevProd, newSurfProduct]);
+
+        navigate("/surfproducts")
       } else {
         console.log("You have to fill in all the forms");
       }
@@ -89,6 +94,7 @@ const Admin = () => {
       );
       if (isNotEmpty) {
         setKiteProducts((prevProd) => [...prevProd, newKiteProduct]);
+        navigate("/kiteproducts")
       } else {
         console.log("You have to fill in all the forms");
       }

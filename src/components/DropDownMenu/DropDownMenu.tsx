@@ -23,7 +23,7 @@ const DropDownMenu = ({ setShowMenu, showMenu }: HandleMenuProps) => {
           <NavLink to="kiteproducts" onClick={() => setShowMenu(false)}>KITESURF</NavLink>
         </li>
         <li className="desktopLink">
-          <NavLink to="wetsuits">WETSUITS</NavLink>
+          <NavLink to="wetsuits" onClick={() => setShowMenu(false)}>WETSUITS</NavLink>
         </li>
         <li className="desktopLink">
           <NavLink to="swimwear" onClick={() => setShowMenu(false)}>SWIMWEAR</NavLink>
