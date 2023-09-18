@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Cart.scss";
 import { useData } from "../../Context/DataContext";
 import CartItem from "../CartItem/CartItem";
@@ -14,7 +14,15 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
     }
   }, []);
 
-  useEffect(() => {}, [cart]);
+  const [cartTotal, setCartTotal] = useState<number>(0);
+  useEffect(() => {
+    let totAmount = 0;
+
+    cart.forEach(item => {
+      totAmount = totAmount + (item.product.price * item.quantity)
+    })
+    setCartTotal(totAmount)
+  }, [cart]);
 
   return (
     <div className={`CartWrapper ${showCart ? "" : "hide"}`}>
@@ -26,14 +34,29 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
         <i onClick={() => setShowCart(false)} className="fa-solid fa-xmark"></i>
       </div>
       <div className="CartItemContainer">
-        {cart.length >0 ?
+        {cart.length > 0 ? (
           cart.map((item, index) => (
-            <CartItem key={index} item={item} index={index} showCart={showCart} />
-          )) : (<p className="empty">Your cart is empty.</p>)}
+            <CartItem
+              key={index}
+              item={item}
+              index={index}
+              showCart={showCart}
+            />
+          ))
+        ) : (
+          <p className="empty">Your cart is empty.</p>
+        )}
       </div>
-      <button className="buy">
-        PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>
-      </button>
+      <div className="cartBottom">
+        <button className="buy">
+          PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>
+        </button>
+        <div>
+        <h3>Total:</h3>
+        <h3><span className="price">{cartTotal} EUR</span></h3>
+
+        </div>
+      </div>
     </div>
   );
 };
