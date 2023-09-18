@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.underConstruction {
+  padding-top: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  gap: 2rem;
+  font-family: $normalFont;
+  h1, .spinner {
+    color: gray;
+    font-size: 24px;
+  }
+  height: calc(100vh - 180px);
+
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+  }
+}

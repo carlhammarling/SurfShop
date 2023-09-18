@@ -35,7 +35,7 @@ useEffect(() => {
 
   return (
     <div className="Navbar">
-      <div className="logo"></div>
+      <NavLink to="/" className="logo" onClick={() => {setShowCart(false); setShowMenu(false)}}></NavLink>
       <ul className="Nav">
         <li className="desktopLink">
           <NavLink to="/" onClick={() => setShowCart(false)}>HOME</NavLink>

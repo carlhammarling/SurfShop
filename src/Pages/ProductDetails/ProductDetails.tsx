@@ -71,7 +71,7 @@ const ProductDetails = () => {
               </p>
                 <div className="priceInfo">
 
-              <p className="price">{product.price},00 EUR</p>
+              <p className="price">{product.price} EUR</p>
               <p className="extraInfo">incl. IVA</p>
               <p className="extraInfo">excl. devlivery</p>
                 </div>

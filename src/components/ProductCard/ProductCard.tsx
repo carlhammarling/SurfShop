@@ -16,7 +16,7 @@ const ProductCard = (props: AllProduct) => {
         {props.category === "surfproducts" && <p className="description">{props.productName} {props.length}ft {props.boardType.toLowerCase()}board.</p>}
         {/* Kite */}
         {props.category === "kiteproducts" && <p className="description">{props.productName} {props.kiteType.toLowerCase()}.</p>}
-        <p className="price">{props.price},00 EUR</p>
+        <p className="price">{props.price} EUR</p>
         
       </div>
       <div className="productButton">VIEW MORE</div>
