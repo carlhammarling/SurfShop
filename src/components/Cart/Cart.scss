@@ -56,8 +56,10 @@
     margin-inline: 2rem;
     flex: 1;
 
+
     &::-webkit-scrollbar {
-      width: 0.1rem; /* This makes the scrollbar very narrow */
+      width: 0rem; /* This makes the scrollbar very narrow */
+      height: 0rem;
       background-color: transparent; /* Makes the scrollbar background transparent */
     }
 
@@ -67,19 +69,15 @@
   }
 
   .cartBottom {
-    display: flex;
     margin: 2rem;
+    display: flex;
+    // flex-direction: column;
     gap: 2rem;
-
-    h3 {
-      font-weight: 600;
-      color: $infoGray;
-
-      span.price {
-        font-weight: 800;
-        color: $blue;
+      h3 {
+        font-weight: 600;
+        color: $infoGray;
       }
-    }
+  
   }
 
   button.buy {

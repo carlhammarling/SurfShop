@@ -18,10 +18,10 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
   useEffect(() => {
     let totAmount = 0;
 
-    cart.forEach(item => {
-      totAmount = totAmount + (item.product.price * item.quantity)
-    })
-    setCartTotal(totAmount)
+    cart.forEach((item) => {
+      totAmount = totAmount + item.product.price * item.quantity;
+    });
+    setCartTotal(totAmount);
   }, [cart]);
 
   return (
@@ -48,13 +48,23 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
         )}
       </div>
       <div className="cartBottom">
+        {/* <div className="totalCartInfo">
+          <h3>Total:</h3>
+          <h3>
+            <span className="price">{cartTotal} EUR</span>
+          </h3>
+          <p className="extraInfo">incl. IVA</p>
+          <p className="extraInfo">excl. devlivery</p>
+        </div> */}
+
         <button className="buy">
           PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>
         </button>
         <div>
-        <h3>Total:</h3>
-        <h3><span className="price">{cartTotal} EUR</span></h3>
-
+          <h3>Total:</h3>
+          <h3>
+            <span className="price">{cartTotal} EUR</span>
+          </h3>
         </div>
       </div>
     </div>
