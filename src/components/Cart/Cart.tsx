@@ -8,7 +8,7 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
 
   useEffect(() => {
     const getCart: string | null = localStorage.getItem("cart");
-    let cartData: CartItem[] = getCart ? JSON.parse(getCart) : [];
+    const cartData: CartItem[] = getCart ? JSON.parse(getCart) : [];
     if (cartData) {
       setCart(cartData);
     }
@@ -26,10 +26,10 @@ const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
         <i onClick={() => setShowCart(false)} className="fa-solid fa-xmark"></i>
       </div>
       <div className="CartItemContainer">
-        {cart &&
+        {cart.length >0 ?
           cart.map((item, index) => (
             <CartItem key={index} item={item} index={index} showCart={showCart} />
-          ))}
+          )) : (<p className="empty">Your cart is empty.</p>)}
       </div>
       <button className="buy">
         PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>

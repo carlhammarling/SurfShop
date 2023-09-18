@@ -87,6 +87,10 @@
         i {
           color: white;
         }
+
+        &:active {
+          opacity: .8;
+        }
       }
     }
   }

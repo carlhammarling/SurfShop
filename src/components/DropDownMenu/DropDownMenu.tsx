@@ -7,7 +7,7 @@ const DropDownMenu = ({ setShowMenu, showMenu }: HandleMenuProps) => {
 
 
   return (
-    <div className={`MenuWrapper ${showMenu ? "" : "hide"}`}>
+    <div className={`MenuWrapper ${showMenu ? "" : "hide"}`} >
 
       <div className="MenuItemContainer">
       <ul className="Nav">

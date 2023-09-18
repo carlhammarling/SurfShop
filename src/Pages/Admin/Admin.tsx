@@ -52,7 +52,7 @@ const Admin = () => {
 
     if (formData.category === "surfproducts") {
       const newSurfProduct: Surfboard = {
-        //Gets the last products id and adds 1
+        //Gets the last products id and adds 1 as a new id.
         id: surfProducts[surfProducts.length - 1].id + 1,
         category: formData.category,
         productName: formData.productName,

@@ -86,6 +86,10 @@
         @include mixins.blueButton;
         border: 0;
         cursor: pointer;
+
+        &:active {
+          opacity: .8;
+        }
       }
       button.back {
         @include mixins.whiteButton;

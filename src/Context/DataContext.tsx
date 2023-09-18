@@ -2,7 +2,6 @@ import React, {
   createContext,
   useContext,
   useState,
-  ReactNode,
   useEffect,
 } from "react";
 import { getCart } from "./Helper";
@@ -193,21 +192,21 @@ export const DataProvider = ({ children }: DataProviderProps) => {
 
   useEffect(() => {
     onSnapshot(docRefSurf, (querySnapshot) => {
-      const allProducts: Surfboard[] = querySnapshot.docs.map((doc) => {
+      const allSurfProducts: Surfboard[] = querySnapshot.docs.map((doc) => {
         return { ...doc.data(), id: parseInt(doc.id) } as Surfboard;
       });
 
-      setSurfProducts(allProducts);
+      setSurfProducts(allSurfProducts);
     });
   }, []);
 
   useEffect(() => {
     onSnapshot(docRefKite, (querySnapshot) => {
-      const allProducts: Kite[] = querySnapshot.docs.map((doc) => {
+      const allKiteProducts: Kite[] = querySnapshot.docs.map((doc) => {
         return { ...doc.data(), id: parseInt(doc.id) } as Kite;
       });
 
-      setKiteProducts(allProducts);
+      setKiteProducts(allKiteProducts);
     });
   }, []);
   

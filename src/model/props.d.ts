@@ -23,7 +23,7 @@ interface HandleCartProps {
 }
 interface HandleMenuProps {
   setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  showMenu?: boolean
+  showMenu: boolean
 }
 
 type NavbarProps = HandleCartProps & HandleMenuProps

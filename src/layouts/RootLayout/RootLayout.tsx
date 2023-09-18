@@ -13,8 +13,8 @@ const RootLayout = () => {
     <div className="site">
       <Navbar {...{ setShowCart, showCart, setShowMenu, showMenu }} />
       <Outlet />
-      <Cart {...{ setShowCart, showCart, setShowMenu, showMenu }} />
-      <DropDownMenu {...{ setShowCart, showCart, setShowMenu, showMenu }} />
+      <Cart {...{ setShowCart, showCart }} />
+      <DropDownMenu {...{ setShowMenu, showMenu }} />
       <Footer />
     </div>
   );

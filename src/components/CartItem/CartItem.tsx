@@ -8,7 +8,9 @@ const CartItem = ({ item, index, showCart }: CartItemProps) => {
   const [showEdit, setShowEdit] = useState<boolean>(false);
 
   useEffect(() => {
-    setShowEdit(false)
+    setTimeout(() => {
+      setShowEdit(false)
+    }, 500)
   }, [showCart])
 
   return (
@@ -36,14 +38,15 @@ const CartItem = ({ item, index, showCart }: CartItemProps) => {
           <div className="editQty">
             <p className="extraInfo">Edit quantity:</p>
             <div className="qtySelect">
-              <div className="qty" onClick={() => incrementCartItem(index)}>
-                <i className="fa-solid fa-plus"></i>
+            <div className="qty" onClick={() => decrementCartItem(index)}>
+                <i className="fa-solid fa-minus"></i>
               </div>
+              
               <div>
                 <p>{item.quantity}</p>
               </div>
-              <div className="qty" onClick={() => decrementCartItem(index)}>
-                <i className="fa-solid fa-minus"></i>
+              <div className="qty" onClick={() => incrementCartItem(index)}>
+                <i className="fa-solid fa-plus"></i>
               </div>
             </div>
           </div>

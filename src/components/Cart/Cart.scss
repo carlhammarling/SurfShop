@@ -1,7 +1,6 @@
 @use "../../styles/mixins";
 @import "../../styles/variables";
 
-
 .CartWrapper {
   position: fixed;
   background: white;
@@ -18,7 +17,6 @@
   @media (max-width: 1100px) {
     top: 100px;
     height: calc(100dvh - 100px);
-
   }
 
   @media (max-width: 550px) {
@@ -47,15 +45,33 @@
     }
   }
 
+  .empty {
+    margin-top: 2rem;
+    color: $infoGray;
+  }
+
   .CartItemContainer {
     overflow: scroll;
     border-bottom: 2px solid $gray;
     margin-inline: 2rem;
     flex: 1;
+
+    &::-webkit-scrollbar {
+      width: 0.1rem; /* This makes the scrollbar very narrow */
+      background-color: transparent; /* Makes the scrollbar background transparent */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: transparent; /* Makes the scrollbar thumb transparent */
+    }
   }
 
   button.buy {
     @include mixins.blueButton;
     margin: 2rem;
+
+    &:active {
+      opacity: .8;
+    }
   }
 }

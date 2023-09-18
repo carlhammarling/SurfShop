@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.scss";
 import "../../assets/images/surf-logo.png";
 import { useData } from "../../Context/DataContext";
+import { useEffect, useState } from "react";
 
 const Navbar = ({
   setShowCart,
@@ -10,6 +11,17 @@ const Navbar = ({
   showMenu,
 }: NavbarProps) => {
   const { cart } = useData();
+const [cartQty, setCartQty] = useState<number>();
+
+useEffect(() => {
+  
+  let cartAmount = 0;
+  cart.forEach(item => {
+    cartAmount = cartAmount + item.quantity
+  })
+    setCartQty(cartAmount)
+}, [cart]);
+
 
   const switchMenu = () => {
       setShowCart((state) => !state);
@@ -52,7 +64,7 @@ const Navbar = ({
             <div
               className={`cartCount ${cart && cart.length > 0 ? "" : "hide"}`}
             >
-              {cart.length}
+              {cartQty}
             </div>
           </div>
         </li>
