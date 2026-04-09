@@ -213,7 +213,7 @@ export default function Navbar ({
               <Badge
                 badgeContent={cartQty}
                 color='error'
-                invisible={!cart || cart.length === 0}
+                invisible={cart.length === 0}
               >
                 <ShoppingCartOutlinedIcon
                   fontSize='inherit'

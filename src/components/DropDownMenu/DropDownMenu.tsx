@@ -19,7 +19,8 @@ const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
   }) as const
 
 export default function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps): React.JSX.Element {
-  const close = () => {
+  function handleClose (): void {
+    if (!showMenu) return
     setShowMenu(false)
   }
 
@@ -27,7 +28,7 @@ export default function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps
     <Drawer
       anchor='right'
       open={showMenu}
-      onClose={close}
+      onClose={handleClose}
       ModalProps={{
         keepMounted: true,
       }}
