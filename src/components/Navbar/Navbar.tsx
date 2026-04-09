@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   AppBar,
@@ -11,7 +12,6 @@ import {
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import MenuIcon from '@mui/icons-material/Menu'
 import { useData } from '../../Context/DataContext'
-import { useEffect, useState } from 'react'
 import surfLogo from '../../assets/images/surf-logo.png'
 import { appBarHeights } from '../../theme'
 
@@ -23,12 +23,12 @@ const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     fontFamily: '"Odibee Sans", "Segoe UI", sans-serif',
   }) as const
 
-function Navbar ({
+export default function Navbar ({
   setShowCart,
   setShowMenu,
   showCart: _showCart,
   showMenu: _showMenu,
-}: NavbarProps) {
+}: NavbarProps): React.JSX.Element {
   const { cart } = useData()
   const [cartQty, setCartQty] = useState<number>(0)
 
@@ -246,5 +246,3 @@ function Navbar ({
     </AppBar>
   )
 }
-
-export default Navbar

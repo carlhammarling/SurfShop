@@ -13,7 +13,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { appBarHeights, primaryGradient } from '../../theme'
 
-function ProductDetails () {
+export default function ProductDetails (): React.JSX.Element {
   const navigate = useNavigate()
   const searchProps: string[] = window.location.pathname.split('/')
   const productCategory: string = searchProps[1]
@@ -246,5 +246,3 @@ function ProductDetails () {
     </>
   )
 }
-
-export default ProductDetails

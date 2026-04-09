@@ -17,7 +17,7 @@ import { appBarHeights, primaryGradient } from '../../theme'
 export default function Cart ({
   setShowCart,
   showCart,
-}: HandleCartProps): React.ReactElement {
+}: HandleCartProps): React.JSX.Element {
   const { cart, setCart } = useData()
   const [cartTotal, setCartTotal] = useState<number>(0)
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   Card,
@@ -11,7 +12,7 @@ export default function CategoryCard ({
   catName,
   imgURL,
   link,
-}: Category): React.ReactElement {
+}: Category): React.JSX.Element {
   return (
     <Card
       component={Link}

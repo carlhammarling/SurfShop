@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer'
 import Cart from '../../components/Cart/Cart'
 import DropDownMenu from '../../components/DropDownMenu/DropDownMenu'
 
-function RootLayout () {
+export default function RootLayout (): React.JSX.Element {
   const [showCart, setShowCart] = useState<boolean>(false)
   const [showMenu, setShowMenu] = useState<boolean>(false)
 
@@ -37,5 +37,3 @@ function RootLayout () {
     </Box>
   )
 }
-
-export default RootLayout

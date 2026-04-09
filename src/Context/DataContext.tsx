@@ -11,7 +11,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 
 const DataContext = createContext<DataContextProps | undefined>(undefined)
 
-export function DataProvider ({ children }: DataProviderProps) {
+export function DataProvider ({ children }: DataProviderProps): React.JSX.Element {
   const [categories, setCategories] = useState<Category[]>([
     {
       id: 1,

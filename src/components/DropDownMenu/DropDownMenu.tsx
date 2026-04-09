@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {
   Drawer,
@@ -17,7 +18,7 @@ const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     flex: 1,
   }) as const
 
-function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps) {
+export default function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps): React.JSX.Element {
   const close = () => {
     setShowMenu(false)
   }
@@ -164,5 +165,3 @@ function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps) {
     </Drawer>
   )
 }
-
-export default DropDownMenu

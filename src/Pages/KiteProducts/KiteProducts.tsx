@@ -1,9 +1,10 @@
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { useData } from '../../Context/DataContext'
 import { appBarHeights } from '../../theme'
 
-function KiteProducts () {
+export default function KiteProducts (): React.JSX.Element {
   const { kiteProducts } = useData()
 
   return (
@@ -62,5 +63,3 @@ function KiteProducts () {
     </Box>
   )
 }
-
-export default KiteProducts

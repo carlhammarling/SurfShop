@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Typography, Stack } from '@mui/material'
 import FadeLoader from 'react-spinners/FadeLoader'
 import { appBarHeights } from '../../theme'
 
-function UnderConstruction () {
+export default function UnderConstruction (): React.JSX.Element {
   const navigate = useNavigate()
-  React.useEffect(() => {
+  useEffect(() => {
     const t = setTimeout(() => {
       navigate('/')
     }, 1200)
@@ -43,5 +43,3 @@ function UnderConstruction () {
     </Stack>
   )
 }
-
-export default UnderConstruction

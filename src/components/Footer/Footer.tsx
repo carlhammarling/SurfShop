@@ -1,7 +1,8 @@
+import React from 'react'
 import { Box } from '@mui/material'
 import surfLogo from '../../assets/images/surf-logo.png'
 
-function Footer () {
+export default function Footer (): React.JSX.Element {
   return (
     <Box
       component='footer'
@@ -28,5 +29,3 @@ function Footer () {
     </Box>
   )
 }
-
-export default Footer

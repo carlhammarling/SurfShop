@@ -15,7 +15,7 @@ import {
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { appBarHeights, primaryGradient } from '../../theme'
 
-function Admin () {
+export default function Admin (): React.JSX.Element {
   const { surfProducts, setSurfProducts, kiteProducts, setKiteProducts } = useData()
   const navigate = useNavigate()
 
@@ -333,5 +333,3 @@ function Admin () {
     </Box>
   )
 }
-
-export default Admin

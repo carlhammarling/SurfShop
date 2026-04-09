@@ -1,9 +1,10 @@
+import React from 'react'
 import { Box } from '@mui/material'
 import CategoryCard from '../../components/CategoryCard/CategoryCard'
 import { useData } from '../../Context/DataContext'
 import { appBarHeights } from '../../theme'
 
-function Home () {
+export default function Home (): React.JSX.Element {
   const { categories } = useData()
 
   return (
@@ -43,5 +44,3 @@ function Home () {
     </Box>
   )
 }
-
-export default Home

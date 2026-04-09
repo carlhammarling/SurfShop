@@ -1,9 +1,10 @@
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import { useData } from '../../Context/DataContext'
 import { appBarHeights } from '../../theme'
 
-function SurfProducts () {
+export default function SurfProducts (): React.JSX.Element {
   const { surfProducts } = useData()
 
   return (
@@ -62,5 +63,3 @@ function SurfProducts () {
     </Box>
   )
 }
-
-export default SurfProducts

@@ -16,7 +16,7 @@ export default function CartItem ({
   item,
   index,
   showCart,
-}: CartItemProps): React.ReactElement {
+}: CartItemProps): React.JSX.Element {
   const { deleteCartItem, incrementCartItem, decrementCartItem } = useData()
   const [showEdit, setShowEdit] = useState<boolean>(false)
 

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   Card,
@@ -7,7 +8,7 @@ import {
   Box,
 } from '@mui/material'
 
-function ProductCard (props: AllProduct) {
+export default function ProductCard (props: AllProduct): React.JSX.Element {
   const description =
     props.category === 'surfproducts'
       ? `${props.productName} ${props.length}ft ${props.boardType.toLowerCase()}board.`
@@ -110,5 +111,3 @@ function ProductCard (props: AllProduct) {
     </Card>
   )
 }
-
-export default ProductCard
