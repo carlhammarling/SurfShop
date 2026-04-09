@@ -29,16 +29,23 @@
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@eslint/js": "^9.39.4",
     "@stylistic/eslint-plugin": "^5.10.0",
+    "@testing-library/dom": "^9.3.4",
+    "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.39.4",
     "eslint-config-love": "^152.0.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.4.0",
-    "typescript-eslint": "^8.58.1"
+    "jsdom": "^26.1.0",
+    "typescript-eslint": "^8.58.1",
+    "vitest": "^3.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "vitest run",
+    "test:jest": "react-scripts test --passWithNoTests",
+    "test:vitest": "vitest",
+    "test:vitest:run": "vitest run",
     "eject": "react-scripts eject",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
