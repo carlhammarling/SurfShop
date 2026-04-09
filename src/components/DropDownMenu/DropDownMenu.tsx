@@ -1,42 +1,168 @@
-import React, { useEffect } from "react";
 import { NavLink } from 'react-router-dom'
-import "./DropDownMenu.scss";
+import {
+  Drawer,
+  List,
+  ListItem,
+  IconButton,
+} from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import { appBarHeights } from '../../theme'
 
+const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
+  ({
+    color: 'rgb(35, 35, 35)',
+    textDecoration: isActive ? 'underline' : 'none',
+    fontSize: 24,
+    fontFamily: '"Odibee Sans", "Segoe UI", sans-serif',
+    flex: 1,
+  }) as const
 
-const DropDownMenu = ({ setShowMenu, showMenu }: HandleMenuProps) => {
-
+function DropDownMenu ({ setShowMenu, showMenu }: HandleMenuProps) {
+  const close = () => {
+    setShowMenu(false)
+  }
 
   return (
-    <div className={`MenuWrapper ${showMenu ? "" : "hide"}`} >
-
-      <div className="MenuItemContainer">
-      <ul className="Nav">
-        <li className="desktopLink">
-          <NavLink to="/" onClick={() => setShowMenu(false)}>HOME</NavLink>
-          <i onClick={() => setShowMenu(false)} className="fa-solid fa-xmark"></i>
-
-        </li>
-        <li className="desktopLink">
-          <NavLink to="surfproducts" onClick={() => setShowMenu(false)}>SURFBOARDS</NavLink>
-        </li>
-        <li className="desktopLink">
-          <NavLink to="kiteproducts" onClick={() => setShowMenu(false)}>KITESURF</NavLink>
-        </li>
-        <li className="desktopLink">
-          <NavLink to="wetsuits" onClick={() => setShowMenu(false)}>WETSUITS</NavLink>
-        </li>
-        <li className="desktopLink">
-          <NavLink to="swimwear" onClick={() => setShowMenu(false)}>SWIMWEAR</NavLink>
-        </li>
-        <li className="desktopLink">
-          <NavLink className="redFont" to="admin" onClick={() => setShowMenu(false)}>
+    <Drawer
+      anchor='right'
+      open={showMenu}
+      onClose={close}
+      ModalProps={{
+        keepMounted: true,
+      }}
+      sx={{
+        display: { xs: 'block', md: 'none' },
+        zIndex: t => t.zIndex.drawer,
+        '& .MuiDrawer-paper': {
+          top: { xs: appBarHeights.xs, md: appBarHeights.md },
+          height: {
+            xs: `calc(100dvh - ${appBarHeights.xs}px)`,
+            md: `calc(100dvh - ${appBarHeights.md}px)`,
+          },
+          width: { xs: '100%', sm: 500 },
+          maxWidth: '100%',
+          boxShadow: '-20px 10px 50px 0px rgba(0, 0, 0, 0.1)',
+          boxSizing: 'border-box',
+        },
+      }}
+    >
+      <List
+        sx={{
+          px: 2,
+          py: 0,
+          width: '100%',
+        }}
+      >
+        <ListItem
+          sx={{
+            py: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <NavLink
+            to='/'
+            end
+            onClick={close}
+            style={navLinkStyle}
+          >
+            HOME
+          </NavLink>
+          <IconButton
+            onClick={close}
+            aria-label='Close menu'
+            edge='end'
+            size='small'
+          >
+            <CloseIcon />
+          </IconButton>
+        </ListItem>
+        <ListItem
+          sx={{
+            py: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            display: 'block',
+          }}
+        >
+          <NavLink
+            to='/surfproducts'
+            onClick={close}
+            style={navLinkStyle}
+          >
+            SURFBOARDS
+          </NavLink>
+        </ListItem>
+        <ListItem
+          sx={{
+            py: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            display: 'block',
+          }}
+        >
+          <NavLink
+            to='/kiteproducts'
+            onClick={close}
+            style={navLinkStyle}
+          >
+            KITESURF
+          </NavLink>
+        </ListItem>
+        <ListItem
+          sx={{
+            py: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            display: 'block',
+          }}
+        >
+          <NavLink
+            to='/wetsuits'
+            onClick={close}
+            style={navLinkStyle}
+          >
+            WETSUITS
+          </NavLink>
+        </ListItem>
+        <ListItem
+          sx={{
+            py: 4,
+            borderBottom: 1,
+            borderColor: 'divider',
+            display: 'block',
+          }}
+        >
+          <NavLink
+            to='/swimwear'
+            onClick={close}
+            style={navLinkStyle}
+          >
+            SWIMWEAR
+          </NavLink>
+        </ListItem>
+        <ListItem
+          sx={{
+            py: 4,
+            display: 'block',
+          }}
+        >
+          <NavLink
+            to='/admin'
+            onClick={close}
+            style={({ isActive }) => ({
+              ...navLinkStyle({ isActive }),
+              color: 'red',
+            })}
+          >
             ADMIN
           </NavLink>
-        </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+        </ListItem>
+      </List>
+    </Drawer>
+  )
+}
 
-export default DropDownMenu;
+export default DropDownMenu

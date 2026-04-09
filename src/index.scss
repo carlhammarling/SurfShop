@@ -1,64 +1,8 @@
-@import './styles/variables';
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    font-family: Odibee Sans;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  color: $darkGray;
-
-}
-
-.site {
-  position: relative;
-}
-
-ul, a {
-font-family: Odibee Sans;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-}
-
-h1.bannerFont {
-  color: white;
-  font-size: 3rem;
-  padding: 1rem 2rem;
-  border: 7px solid white;
-}
-
+// Minimal globals; MUI + theme handle most styling. Odibee Sans is loaded in public/index.html.
 
 .blockLink {
   position: absolute;
   height: 100%;
   width: 100%;
+  inset: 0;
 }
-
-.price {
-  font-weight: 800;
-  color: $blue;
-}
-
-.price {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: $blue;
-}
-.extraInfo {
-  color: $infoGray;
-  font-size: 13px;
-}
-

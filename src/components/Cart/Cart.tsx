@@ -1,74 +1,201 @@
-import React, { useEffect, useState } from "react";
-import "./Cart.scss";
-import { useData } from "../../Context/DataContext";
-import CartItem from "../CartItem/CartItem";
+import React, { useEffect, useState } from 'react'
+import {
+  Drawer,
+  Box,
+  Typography,
+  IconButton,
+  Button,
+  Stack,
+} from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import { useData } from '../../Context/DataContext'
+import CartItem from '../CartItem/CartItem'
+import { appBarHeights, primaryGradient } from '../../theme'
 
-const Cart = ({ setShowCart, showCart }: HandleCartProps) => {
-  const { cart, setCart } = useData();
+export default function Cart ({
+  setShowCart,
+  showCart,
+}: HandleCartProps): React.ReactElement {
+  const { cart, setCart } = useData()
+  const [cartTotal, setCartTotal] = useState<number>(0)
 
   useEffect(() => {
-    const getCart: string | null = localStorage.getItem("cart");
-    const cartData: CartItem[] = getCart ? JSON.parse(getCart) : [];
-    if (cartData) {
-      setCart(cartData);
-    }
-  }, []);
+    const raw: string | null = localStorage.getItem('cart')
+    const cartData: CartItem[] = raw !== null
+      ? (JSON.parse(raw) as CartItem[])
+      : []
+    setCart(cartData)
+  }, [])
 
-  const [cartTotal, setCartTotal] = useState<number>(0);
   useEffect(() => {
-    let totAmount = 0;
-
+    let totAmount = 0
     cart.forEach((item) => {
-      totAmount = totAmount + item.product.price * item.quantity;
-    });
-    setCartTotal(totAmount);
-  }, [cart]);
+      totAmount += item.product.price * item.quantity
+    })
+    setCartTotal(totAmount)
+  }, [cart])
+
+  function handleClose (): void {
+    if (!showCart) return
+    setShowCart(false)
+  }
 
   return (
-    <div className={`CartWrapper ${showCart ? "" : "hide"}`}>
-      <div className="CartHeader">
-        <h1>
-          <i className="fa-solid fa-cart-shopping"></i>
-          {"  "}CART - BIG WAVES SURFING
-        </h1>
-        <i onClick={() => setShowCart(false)} className="fa-solid fa-xmark"></i>
-      </div>
-      <div className="CartItemContainer">
-        {cart.length > 0 ? (
-          cart.map((item, index) => (
-            <CartItem
-              key={index}
-              item={item}
-              index={index}
-              showCart={showCart}
-            />
-          ))
-        ) : (
-          <p className="empty">Your cart is empty.</p>
-        )}
-      </div>
-      <div className="cartBottom">
-        {/* <div className="totalCartInfo">
-          <h3>Total:</h3>
-          <h3>
-            <span className="price">{cartTotal} EUR</span>
-          </h3>
-          <p className="extraInfo">incl. IVA</p>
-          <p className="extraInfo">excl. devlivery</p>
-        </div> */}
+    <Drawer
+      anchor='right'
+      open={showCart}
+      onClose={handleClose}
+      ModalProps={{
+        keepMounted: true,
+      }}
+      sx={{
+        zIndex: t => t.zIndex.drawer,
+        '& .MuiDrawer-paper': {
+          top: { xs: appBarHeights.xs, md: appBarHeights.md },
+          height: {
+            xs: `calc(100dvh - ${appBarHeights.xs}px)`,
+            md: `calc(100dvh - ${appBarHeights.md}px)`,
+          },
+          width: { xs: '100%', sm: 500 },
+          maxWidth: '100%',
+          boxShadow: '-20px 10px 50px 0px rgba(0, 0, 0, 0.1)',
+          display: 'flex',
+          flexDirection: 'column',
+          boxSizing: 'border-box',
+        },
+      }}
+    >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          pb: 4,
+          mx: 4,
+          mt: 4,
+          borderBottom: 2,
+          borderColor: 'grey.300',
+        }}
+      >
+        <Typography
+          variant='h6'
+          component='h1'
+          sx={{
+            fontSize: 18,
+            fontWeight: 600,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1,
+          }}
+        >
+          <ShoppingCartOutlinedIcon
+            fontSize='small'
+          />
+          CART - BIG WAVES SURFING
+        </Typography>
+        <IconButton
+          onClick={handleClose}
+          aria-label='Close cart'
+          size='small'
+        >
+          <CloseIcon />
+        </IconButton>
+      </Box>
 
-        <button className="buy">
-          PLACE ORDER &nbsp;<i className="fa-solid fa-arrow-right"></i>
-        </button>
-        <div>
-          <h3>Total:</h3>
-          <h3>
-            <span className="price">{cartTotal} EUR</span>
-          </h3>
-        </div>
-      </div>
-    </div>
-  );
-};
+      <Box
+        sx={{
+          flex: 1,
+          overflow: 'auto',
+          mx: 4,
+          borderBottom: 2,
+          borderColor: 'grey.300',
+          scrollbarWidth: 'none',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }}
+      >
+        {cart.length > 0
+          ? cart.map((item, index) => (
+              <CartItem
+                key={index}
+                item={item}
+                index={index}
+                showCart={showCart}
+              />
+            ))
+          : (
+              <Typography
+                sx={{
+                  mt: 4,
+                  color: 'text.secondary',
+                }}
+              >
+                Your cart is empty.
+              </Typography>
+            )}
+      </Box>
 
-export default Cart;
+      <Stack
+        direction='row'
+        spacing={4}
+        sx={{
+          m: 4,
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <Button
+          variant='contained'
+          endIcon={<ArrowForwardIcon />}
+          sx={{
+            color: 'white',
+            px: 2,
+            py: 1,
+            background: primaryGradient,
+            backgroundSize: '200%',
+            backgroundPosition: '30% center',
+            '&:hover': {
+              background: primaryGradient,
+              backgroundSize: '200%',
+              backgroundPosition: '10% center',
+              opacity: 0.95,
+            },
+          }}
+        >
+          PLACE ORDER
+        </Button>
+        <Box>
+          <Typography
+            variant='h6'
+            sx={{
+              fontWeight: 600,
+              color: 'text.secondary',
+            }}
+          >
+            Total:
+          </Typography>
+          <Typography
+            variant='h6'
+            sx={{
+              fontWeight: 600,
+              color: 'text.secondary',
+            }}
+          >
+            <Box
+              component='span'
+              sx={{
+                color: 'primary.main',
+                fontWeight: 800,
+              }}
+            >
+              {cartTotal} EUR
+            </Box>
+          </Typography>
+        </Box>
+      </Stack>
+    </Drawer>
+  )
+}

@@ -1,19 +1,47 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./UnderConstruction.scss";
-import FadeLoader from "react-spinners/FadeLoader";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Typography, Stack } from '@mui/material'
+import FadeLoader from 'react-spinners/FadeLoader'
+import { appBarHeights } from '../../theme'
 
-const UnderConstruction = () => {
-  const navigate = useNavigate();
-  setTimeout(() => {
-    navigate("/");
-  }, 1200);
+function UnderConstruction () {
+  const navigate = useNavigate()
+  React.useEffect(() => {
+    const t = setTimeout(() => {
+      navigate('/')
+    }, 1200)
+    return () => {
+      clearTimeout(t)
+    }
+  }, [navigate])
+
   return (
-    <div className="underConstruction">
-      <FadeLoader className="spinner"/>
-      <h1>Under Construction.</h1> 
-    </div>
-  );
-};
+    <Stack
+      spacing={4}
+      sx={{
+        alignItems: 'center',
+        justifyContent: 'center',
+        pt: { xs: `${appBarHeights.xs}px`, md: `${appBarHeights.md}px` },
+        minHeight: {
+          xs: `calc(100vh - ${appBarHeights.xs}px)`,
+          md: `calc(100vh - ${appBarHeights.md}px)`,
+        },
+        m: 2,
+      }}
+    >
+      <FadeLoader
+        color='gray'
+      />
+      <Typography
+        variant='h5'
+        sx={{
+          color: 'grey.600',
+        }}
+      >
+        Under Construction.
+      </Typography>
+    </Stack>
+  )
+}
 
-export default UnderConstruction;
+export default UnderConstruction

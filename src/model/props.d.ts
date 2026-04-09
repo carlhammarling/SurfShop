@@ -1,48 +1,47 @@
 interface DataContextProps {
-  categories: Category[];
-  setCategories: React.Dispatch<React.SetStateAction<Category[]>>;
-  surfProducts: Surfboard[];
-  setSurfProducts: React.Dispatch<React.SetStateAction<Surfboard[]>>;
-  kiteProducts: Kite[];
-  setKiteProducts: React.Dispatch<React.SetStateAction<Kite[]>>;
-  addToCart: (category: string, id: number) => void;
-  cart: CartItem[];
-  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
-  deleteCartItem: (index: number) => void;
-  incrementCartItem: (index: number) => void;
-  decrementCartItem: (index: number) => void;
+  categories: Category[]
+  setCategories: React.Dispatch<React.SetStateAction<Category[]>>
+  surfProducts: Surfboard[]
+  setSurfProducts: React.Dispatch<React.SetStateAction<Surfboard[]>>
+  kiteProducts: Kite[]
+  setKiteProducts: React.Dispatch<React.SetStateAction<Kite[]>>
+  addToCart: (category: string, id: number) => void
+  cart: CartItem[]
+  setCart: React.Dispatch<React.SetStateAction<CartItem[]>>
+  deleteCartItem: (index: number) => void
+  incrementCartItem: (index: number) => void
+  decrementCartItem: (index: number) => void
 }
 
 interface DataProviderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 interface HandleCartProps {
-  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>
   showCart: boolean
 }
 interface HandleMenuProps {
-  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMenu: React.Dispatch<React.SetStateAction<boolean>>
   showMenu: boolean
 }
 
 type NavbarProps = HandleCartProps & HandleMenuProps
 
 interface CartItemProps {
-  item: CartItem;
-  index: number;
-  showCart: boolean;
+  item: CartItem
+  index: number
+  showCart: boolean
 }
 
-
 interface AddProductProps {
-  category: string;
-  productName: string;
-  imgURL: string;
-  boardLength: string;
-  brand: string;
-  description: string;
-  price: string;
-  boardType: BoardType;
-  kiteType: KiteType;
+  category: string
+  productName: string
+  imgURL: string
+  boardLength: string
+  brand: string
+  description: string
+  price: string
+  boardType: BoardType
+  kiteType: KiteType
 }
